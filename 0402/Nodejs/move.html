@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  <span id="moving"></span>
+    <input type="button" id="movingBtn" name="" value="moving">
+  <script>
+
+    // var count = 0;
+    // function btnMoving(movingCheck){
+    //   document.getElementById('moving').innerHTML = movingCheck
+    // }
+    // // document.getElementById('moving').innerHTML =
+    // //   '<input type="button" id="movingBtn" name="" value="moving">'
+    // document.getElementById('movingBtn').addEventListener('click', function() {
+    //
+    //   count = count+1;
+    //
+    //   var charValue = "<br>";
+    //   var charValue2 = "";
+    //   for (var i = 0; i < count; i++) {
+    //     charValue2 = charValue2+charValue;
+    //   }
+    //
+    //   btnMoving(charValue2);
+    //   console.log("check");
+    // })
+
+    document.getElementById('movingBtn').addEventListener('click', function() {
+      movingBtn.offset({top : 300});
+    })
+
+
+
+      // document.getElementById('moving').innerHTML =
+      // '<input type="button" id="movingBtn" name="" value="moving">'
+      // document.getElementById('movingBtn').addEventListener('click', function(){
+      //
+      //   var movingCheck2 = "<br>";
+      //
+      //   document.getElementById('moving').innerHTML =
+      //   movingCheck2 + '<input type="button" id="movingBtn" name="" value="moving">'
+      // })
+  </script>
+</body>
+
+</html>

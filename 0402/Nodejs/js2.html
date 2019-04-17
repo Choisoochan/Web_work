@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  id : <input type="text" name="" value="" id="loginID"><br>
+  password : <input type="text" name="" value="" id="loginPW"><br>
+  <input type="button" name="" value="로그인" id="loginBtn">
+</body>
+<script type="text/javascript">
+  document.getElementById('loginBtn').addEventListener('click', function() {
+    var inputID = document.getElementById('loginID').value;
+    var inputPW = document.getElementById('loginPW').value;
+    if(inputID=='p' && inputPW=='1'){
+      console.log("succecfully login");
+    }else{
+      console.log("failed to login");
+    }
+
+  })
+</script>
+
+</html>

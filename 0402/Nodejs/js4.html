@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  <span id="loginChange"></span>
+
+  <script type="text/javascript">
+    document.getElementById('loginChange').innerHTML =
+      '<input type="button" id="displayChange" name="" value="로그인 양식 띄우기">';
+    document.getElementById('displayChange').addEventListener('click', function(){
+      document.getElementById('loginChange').innerHTML =
+        'ID : <input type="textarea"><br>Password : <input type="text">'
+        + '<br><input type="button" id="loginBtn" name="" value="로그인">'
+
+        document.getElementById('loginBtn').addEventListener('click', function(){
+          document.getElementById('loginChange').innerHTML =
+            '<input type="button" id="displayChange" name="" value="로그인 양식 띄우기">';
+        })
+
+    })
+
+
+
+  </script>
+
+</body>
+
+</html>

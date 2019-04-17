@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+
+<body>
+  <span id="guguArea"></span>
+  <!-- <input type="button" id = "eventBtn" name="" value="퀴즈의 답은?"><br>
+  <span id="numberArea"></span> -->
+
+
+  <script type="text/javascript">
+    var innerHTMLgugu = '<input type="textarea" id="gugu" name="" value=""><input type="button" id="guguBtn" value="구구단"><br>';
+    document.getElementById('guguArea').innerHTML = innerHTMLgugu;
+
+    // var check = true;
+    // while(check){
+    //   document.getElementById('eventBtn').addEventListener('click', function() {
+    //   check = false;
+    //
+    //   if(check==false){
+    //     var numberText = "";
+    //     for ( var i = 1; i<=100; i++){
+    //       numberText+=i + " ";
+    //       if (i%10 == 0){
+    //         numberText += "<br>"
+    //       }
+    //       document.getElementById('numberArea').innerHTML = numberText;
+    //     }
+    //   }
+    //   document.getElementById('eventBtn').style.display = "none";
+    //   console.log(check);
+    //   })
+    //   break;
+    // }
+
+    document.getElementById('guguBtn').addEventListener('click', function(){
+      var inputNum = document.getElementById('gugu').value
+      var numText = "";
+      for(i=1; i<10; i++){
+        numTextAns = inputNum*i;
+        numText += inputNum + " " + "*" + i + "=" + (inputNum*i) + "<br>";
+      }
+      document.getElementById('guguArea').innerHTML = numText;
+
+
+
+    })
+
+
+
+  </script><br>
+</body>
+
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    1번　　
+    0<input type="radio" name="radioBtnLine01" value="">
+    1<input type="radio" name="radioBtnLine01" value="">
+    2<input type="radio" name="radioBtnLine01" value="">
+    3<input type="radio" name="radioBtnLine01" value="">
+    4<input type="radio" name="radioBtnLine01" value="">
+
+    가중치 <input type="text" id = "rbl01AddValue"><br>
+
+    2번　　
+    0<input type="radio" name="radioBtnLine02" value="">
+    1<input type="radio" name="radioBtnLine02" value="">
+    2<input type="radio" name="radioBtnLine02" value="">
+    3<input type="radio" name="radioBtnLine02" value="">
+    4<input type="radio" name="radioBtnLine02" value="">
+
+    가중치 <input type="text" id = "rbl02AddValue"><br>
+
+    3번　　
+    0<input type="radio" name="radioBtnLine03" value="">
+    1<input type="radio" name="radioBtnLine03" value="">
+    2<input type="radio" name="radioBtnLine03" value="">
+    3<input type="radio" name="radioBtnLine03" value="">
+    4<input type="radio" name="radioBtnLine03" value="">
+
+    가중치 <input type="text" id = "rbl03AddValue"><br>
+    <div id="resultArea"></div>
+    <input type="button" id = 'btn' value = "계산">
+
+    <script>
+      document.getElementById('btn').addEventListener('click', function() {
+        var radios01 = document.getElementsByName('radioBtnLine01');
+        var radios02 = document.getElementsByName('radioBtnLine02');
+        var radios03 = document.getElementsByName('radioBtnLine03');
+
+        var add1 = document.getElementById('rbl01AddValue').value;
+        var add2 = document.getElementById('rbl02AddValue').value;
+        var add3 = document.getElementById('rbl03AddValue').value;
+
+        var radioValue1 = 0;
+        var radioValue2 = 0;
+        var radioValue3 = 0;
+
+        for (var i = 0; i < radios01.length; i++) {
+          if (radios01[i].checked) {
+            radioValue1 = i;
+          }
+          if (radios02[i].checked) {
+            radioValue2 = i;
+          }
+          if (radios03[i].checked) {
+            radioValue3 = i;
+          }
+        }
+
+
+        // 예외처리 ( 가중치에 숫자가 아닌 값을 입력 할 경우 )
+        if(add1.match(/[^0-9,.]/)){
+          alert("숫자만 입력하세요, 가중치1을 0으로 초기화합니다")
+          add1 = 0;
+        }
+        if(add2.match(/[^0-9,.]/)){
+          alert("숫자만 입력하세요, 가중치2를 0으로 초기화합니다")
+          add2 = 0;
+        }
+        if(add3.match(/[^0-9,.]/)){
+          alert("숫자만 입력하세요, 가중치3을 0으로 초기화합니다")
+          add3 = 0;
+        }
+
+
+
+
+
+        totalValue = (radioValue1*add1) + (radioValue2*add2) + (radioValue3*add3);
+        text = `${radioValue1}x${add1} + ${radioValue2}x${add2} + ${radioValue3}x${add3} = ${totalValue}`;
+        // resultValue = radioValue1 + "x" + add1 + " + " +
+        //               radioValue2 + "x" + add2 + " + " +
+        //               radioValue3 + "x" + add3 + " = " +
+        //               ((radioValue1*add1) + (radioValue2*add2) + (radioValue3*add3))
+
+        document.getElementById('resultArea').innerHTML = text
+
+
+
+      })
+
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script>
+      var a1=1, a2=2, a3=3;
+      // a1 = 1;
+      // a2 = 2;
+      // a3 = 3;
+      console.log(a1, a2, a3);
+
+      var reply = [];
+
+      reply0 = "i am reply0";
+      reply1 = "i am reply1";
+      reply2 = "i am reply2";
+
+      reply[0] = "i am reply0";
+      reply[1] = "i am reply1";
+      reply[2] = "i am reply2";
+
+      console.log(reply0);
+      console.log(reply1);
+      console.log(reply2);
+
+      for (var i=0; i<3; i++){
+        console.log(reply[i]);
+      }
+      console.log("aaa", i)
+      console.log(reply[0]);
+      console.log(reply[1]);
+      console.log(reply[2]);
+
+
+      for(var i=0;i<100;i++) {
+        n = "arr" + i + "=[]";
+        eval(n);
+      }
+
+      //arr1
+      for (var i = 0; i < 10; i++){
+        arr1[i] = i+1;
+      }
+
+
+      //arr2
+      for (var i = 0; i < 11; i++){
+        arr2[i] = i*2;
+      }
+
+
+      //arr3
+      for (var i = 0; i < 7; i++) {
+        arr3[i] = "abc"+(i+1)
+        // arr3[i-1] = "abc"+i
+      }
+
+
+      //arr4
+      for (var i = 0; i < 10; i++){
+        arr4[i] = (i*3)+1
+      }
+
+
+      //arr5
+      for (var i = 0; i < 10; i++) {
+        if(i%2==0){
+          arr5[i] = 0;
+        }else{
+          arr5[i] = 1;
+        }
+      }
+
+
+      //arr6
+      for (var i = 0; i < 13; i++) {
+        arr6[i] = i%4;
+      }
+
+
+      //arr7
+      // var sumTxt = ""
+      // for (var i = 0; i < 5; i++) {
+      //   sumTxt += "text";
+      //   arr7[i] = sumTxt;
+      // }
+
+      for (var i = 0; i < 10; i++) {
+        arr7[i] = ""
+        for (var j = 0; j < i+1; j++) {
+          arr7[i] += "text"
+        }
+      }
+
+
+      //arr8
+      // for (var i = 0; i < 7; i++) {
+      //   arr8[i] = 1*(10**i)
+      // }
+
+      var n = 1;
+      for (var i = 0; i < 8; i++) {
+        arr8[i] = n;
+        n = n*10;
+      }
+
+
+      //arr9
+      arr9[0] = 0
+      for(var i = 2; i < 10; i +=2){
+        arr9[i/2] = arr9[i/2 - 1] + 10;
+      }
+
+
+
+      //arr10
+      for(var i = 4; i < 16; i = i+4){
+        for(var j = 0; j < 4; j++){
+          arr10[i - 4 + j] = i - j;
+        }
+      }
+
+
+
+      // arr11
+      for(var i = 0; i <= 200; i++){
+        arr11[i] = i+1
+        var n = "" + arr11[i]
+
+        // if(n.includes('3') || n.includes('6') || n.includes('9')){
+        //   n = "짝"
+        //   arr11[i] = n
+        // }
+        for(var j=0; j<n.length; j++){
+            if(n[j]=="3" || n[j]=="6" || n[j]=="9"){
+              n = n+"짝"
+              arr11[i] = n
+            }
+        }
+      }
+
+
+      for (var i = 0; i < 12; i++) {
+        var n = "console.log(arr" + i + ")";
+        eval(n);
+      }
+
+
+
+      //3, 6, 9 게임 ( 자리수 중 3, 6, 9 가 포함될 때 "짝"을 출력)
+
+      for(var i = 0; i <= 200; i++){
+        var n = i + ""
+        console.log(n);
+        if(n.includes('3') || n.includes('6') || n.includes('9')){
+          console.log("짝이당");
+        }
+      }
+
+
+      for(var i = 0; i <= 200; i++){
+        var n = i + ""
+        console.log(n);
+        for(var j=0; j<n.length; j++){
+            if(n[j]=="3" || n[j]=="6" || n[j]=="9"){
+              console.log("짝");
+              var n = i + ""
+            }
+        }
+      }
+
+
+      for(var i = 0; i<200; i++){
+        arr11[i] = i+""
+        var check = []
+        check = arr11[i]
+        // console.log(typeof(arr11[i]));
+        // for (var j=0; j<check.length; j++){
+        //   if(check[j]=="3" || check[j]=="6" || check[j]=="9"){
+        //     console.log("짝");
+        //   }
+        // }
+        for(var j=0; j<check.length; j++){
+            if(check[j]=="3" || check[j]=="6" || check[j]=="9"){
+              check = arr11[i] + "짝인디"
+            }
+        }
+        console.log(check);
+      }
+
+
+
+
+    </script>
+  </body>
+</html>

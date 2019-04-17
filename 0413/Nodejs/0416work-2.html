@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  <span id="radioArea"></span>
+  <input type="radio" name="radioBtn">
+  <input type="button" name="" value="몇번째일까요?" id="btn">
+  <script>
+    var a = '<input type="radio" name="radioBtn">';
+    document.getElementById("radioArea").innerHTML = a;
+
+
+    document.getElementById('btn').addEventListener('click', function() {
+      var radios = document.getElementsByName('radioBtn');
+
+      for (var i = 0; i < radios.length; i++) {
+        if (radios[i].checked == true) {
+          alert(i + 1);
+
+        }
+      }
+    })
+    console.log(document.getElementsByName('radioBtn'));
+  </script>
+</body>
+
+</html>
