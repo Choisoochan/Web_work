@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <input type="text" id="payBox">
+    <input type="button" id="buyBtn" value="구매"><br>
+    <span id="result"></span>
+  </body>
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script>
+    $("#buyBtn").click(function(){
+
+      var pay = Number($("#payBox").val());
+
+      $.ajax({
+        url:`http://localhost/buy?pay=${pay}`,
+        data: {},
+        success:function(reponse){
+          console.log(reponse);
+          $("#result").html(reponse)
+        }
+      })
+    })
+  </script>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    1번　
+    0<input type="radio" name="Line01" value="">
+    1<input type="radio" name="Line01" value="">
+    2<input type="radio" name="Line01" value="">
+    3<input type="radio" name="Line01" value="">
+    4<input type="radio" name="Line01" value="">
+    가중치　<input type="text" id="Line01Value" value=""><br>
+    2번　
+    0<input type="radio" name="Line02" value="">
+    1<input type="radio" name="Line02" value="">
+    2<input type="radio" name="Line02" value="">
+    3<input type="radio" name="Line02" value="">
+    4<input type="radio" name="Line02" value="">
+    가중치　<input type="text" id="Line02Value" value=""><br>
+    3번　
+    0<input type="radio" name="Line03" value="">
+    1<input type="radio" name="Line03" value="">
+    2<input type="radio" name="Line03" value="">
+    3<input type="radio" name="Line03" value="">
+    4<input type="radio" name="Line03" value="">
+    가중치　<input type="text" id="Line03Value" value=""><br>
+    <div class="" id="valueOutput">
+
+    </div>
+    <input type="button" id="calculateBtn" value="계산">
+
+    <script>
+      document.getElementById('calculateBtn').addEventListener('click', function(){
+        var firstLineArray = document.getElementsByName('Line01');
+        var secondLineArray = document.getElementsByName('Line02');
+        var thirdLineArray = document.getElementsByName('Line03');
+
+        var firstLineAppend = document.getElementById('Line01Value').value;
+        var secondLineAppend = document.getElementById('Line02Value').value;
+        var thirdLineAppend = document.getElementById('Line03Value').value;
+
+        var firstLineValue = 0;
+        var secondLineValue = 0;
+        var thirdLineValue = 0;
+
+        for (var i = 0; i < firstLineArray.length; i++) {
+          if(firstLineArray[i].checked){
+            firstLineValue = i;
+          }
+          if(secondLineArray[i].checked){
+            secondLineValue = i;
+          }
+          if(thirdLineArray[i].checked){
+            thirdLineValue = i;
+          }
+        }
+        var addTotal = (firstLineValue*firstLineAppend) + (secondLineValue*secondLineAppend) + (thirdLineValue*thirdLineAppend)
+        var resultOutput = `${firstLineValue} x ${firstLineAppend} + ${secondLineValue} x ${secondLineAppend} + ${thirdLineValue} x ${thirdLineAppend} = ${addTotal}`
+        document.getElementById('valueOutput').innerHTML = resultOutput
+
+        })
+    </script>
+
+  </body>
+</html>

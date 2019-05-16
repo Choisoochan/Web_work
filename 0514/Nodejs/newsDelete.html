@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <input type="button" id="btnClick" value="전체삭제"><br>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+    <script>
+      $("#btnClick").click(function(){
+        $.ajax({
+          url:'/newsDeleteForm',
+          data: {},
+          success:function(response){
+
+          }
+        })
+      })
+    </script>
+  </body>
+</html>

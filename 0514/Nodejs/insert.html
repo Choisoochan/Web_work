@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    제목 : <input type="text" id="textField1" value=""><br>
+    내용 : <input type="text" id="textField2" value=""><br>
+    <input type="button" id="insertBtn" value="입력">
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+
+    <script>
+      $("#insertBtn").click(function(){
+
+        $.ajax({
+          url:`/insert`,
+          type:'POST',
+          data: {
+            text01 : $("#textField1").val(),
+            text02 : $("#textField2").val()
+          },
+          success:function(response){
+            alert("글쓰기 성공")
+            location.href="http://localhost/new"
+          }
+        })
+      })
+    </script>
+  </body>
+</html>

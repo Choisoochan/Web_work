@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <input type="text" id="box1">
+    <input type="text" id="box2">
+    <input type="text" id="box3">
+    <br>
+    <span id="showResult"></span>
+    <br><br><br><br><br>
+    <input type="button" id="btn1" value="return값으로">
+    <input type="button" id="btn2" value="실행부에서">
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+    <script>
+    // jquery 사용
+      $("#btn1").click(function(){
+        var value1 = $("#box1").val()
+        var value2 = $("#box2").val()
+        var value3 = $("#box3").val()
+        $("#showResult").html(functionTest1(value1,value2,value3));
+      })
+
+      $("#btn2").click(function(){
+        var value1 = $("#box1").val()
+        var value2 = $("#box2").val()
+        var value3 = $("#box3").val()
+        functionTest2(value1,value2,value3);
+      })
+
+      function functionTest1(a,b,c){
+        var array = [a,b,c]
+        return Math.max.apply(null, array);
+      }
+
+      function functionTest2(a,b,c){
+        var array = [a,b,c]
+        return $("#showResult").html(Math.max.apply(null, array))
+      }
+    </script>
+
+    <!-- <script type="text/javascript">
+      // javascript 사용
+      document.getElementById('btn1').addEventListener('click', function(){
+        var value1 = document.getElementById('box1').value
+        var value2 = document.getElementById('box2').value
+        var value3 = document.getElementById('box3').value
+        document.getElementById('showResult').innerHTML = functionTest1(value1,value2,value3);
+      })
+
+      document.getElementById('btn2').addEventListener('click', function(){
+        var value1 = document.getElementById('box1').value
+        var value2 = document.getElementById('box2').value
+        var value3 = document.getElementById('box3').value
+        functionTest2(value1,value2,value3);
+      })
+
+      function functionTest1(a,b,c){
+        var array = [a,b,c]
+
+        return Math.max.apply(null, array);
+      }
+
+      function functionTest2(a,b,c){
+        var array = [a,b,c]
+        return document.getElementById('showResult').innerHTML = Math.max.apply(null, array);
+      }
+    </script> -->
+  </body>
+</html>

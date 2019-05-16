@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <select class="" id="selectBox">
+      <option value="1">a</option>
+      <option value="2">b</option>
+      <option value="3">c</option>
+      <option value="4">d</option>
+      <option value="5">e</option>
+    </select>
+
+    <input type="text" id="payBox">
+    <input type="button" id="paymentBtn" value="버튼"><br>
+    <span id="result"></span>
+  </body>
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+  <script>
+    $("#paymentBtn").click(function(){
+      if($("#selectBox").val()==1){
+        showMsg("a");
+        console.log(showMsg("a"));
+      }else if($("#selectBox").val()==2){
+        showMsg("b");
+      }else if($("#selectBox").val()==3){
+        showMsg("c");
+      }
+      else if($("#selectBox").val()==4){
+        showMsg("d");
+      }
+      else if($("#selectBox").val()==5){
+        showMsg("e");
+      }
+
+      $.ajax({
+        url:`http://localhost/payment`,
+        data: {
+
+        },
+        success:function(response){
+          $("#result").html(response)
+        }
+      })
+    })
+
+
+
+    function showMsg(alphabet){
+      console.log(`${alphabet}를(을) 선택하셨습니다.`);
+      return `your choice is "${alphabet}"`
+    }
+
+
+  </script>
+</html>

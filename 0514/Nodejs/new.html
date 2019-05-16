@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  <input type="button" id="writeBtn" value="글쓰기">
+  <input type="button" id="deleteBtn" value="전체삭제" ><br>
+
+  <span id="showResult"></span>
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+  <script>
+
+    function deleteRow(index){
+      $(`#delete${index}`).click(function() {
+        $.ajax({
+          url: `/newsDeleteForm2`,
+          data: {
+            indexNum : index
+          },
+          success: function(response) {
+            location.href = "http://localhost/new"
+          }
+        })
+      })
+    }
+
+    $.ajax({
+      url: `http://localhost/select`,
+      data: {},
+      success: function(response) {
+
+
+
+
+        for (var i = 0; i < response.length; i++) {
+          // $("#showResult").append(response[i].title, " : ", response[i].text, "<br>")
+          $("#showResult").append(`${response[i].title} :  ${response[i].text} <input type="button" id="delete${i}" onclick="deleteRow(${i})" value="삭제"><br>`)
+
+
+        }
+
+
+
+      }
+    })
+
+
+
+
+    $("#writeBtn").click(function() {
+
+      $.ajax({
+        url: `/insert`,
+        data: {},
+        success: function(response) {
+          location.href = "http://localhost/insert"
+
+        }
+      })
+    })
+
+    $("#deleteBtn").click(function() {
+      $.ajax({
+        url: '/newsDeleteForm',
+        data: {},
+        success: function(response) {
+          location.href = "http://localhost/new"
+        }
+      })
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <span id = "firstPage">시작페이지</span>
+    <input type="button" id="start" value="start">
+    <span id="page1"></span>
+    <span id="page2"></span>
+
+
+
+    <script>
+      var check = true
+      document.getElementById('start').addEventListener('click', function(){
+        document.getElementById('firstPage').style.display = "none"
+        document.getElementById('start').style.display = "none"
+        document.getElementById('page1').innerHTML = "hello" + '<input type="button" id="btn01" value="1번페이지">'
+        document.getElementById('page1').style.display = "inline"
+        document.getElementById('page2').innerHTML = "world" + '<input type="button" id="btn02" value="2번페이지">'
+        document.getElementById('page2').style.display = "none"
+        document.getElementById('btn01').addEventListener('click', function(){
+          if(check){
+            document.getElementById('page1').style.display = "none"
+            document.getElementById('page2').style.display = "inline"
+            check = false
+          }
+          else{
+            document.getElementById('page1').style.display = "inline"
+            document.getElementById('page2').style.display = "none"
+            check = true
+          }
+
+        })
+      })
+
+    </script>
+  </body>
+</html>

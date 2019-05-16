@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    이름 : <input type="text" id="nameBox" value=""><br>
+    html : <input type="text" id="htmlBox" value=""><br>
+    javascript : <input type="text" id="javascriptBox" value=""><br>
+    css : <input type="text" id="cssBox" value=""><br>
+    nodejs : <input type="text" id="nodejsBox" value=""><br>
+    mysql : <input type="text" id="mysqlBox" value=""><br>
+    <input type="button" id="inputData" value="성적입력">
+    <input type="button" id="resetData" value="초기화"><br><br>
+    <span id="showResult1"></span><br>
+    <span id="showResult2"></span><br>
+    <span id="showResult3"></span>
+
+    <script>
+      var nameBox = "";
+      var htmlBox = 0;
+      var javascriptBox = 0;
+      var cssBox = 0;
+      var nodejsBox = 0;
+      var mysqlBox = 0;
+      var resultText1 = "";
+      var resultText2 = "";
+      var resultText3 = "";
+
+      var count = 0;
+
+      var htmlSum = 0;
+      var javascriptSum = 0;
+      var cssSum = 0;
+      var nodejsSum = 0;
+      var mysqlSum = 0;
+
+      var temp1 = 0;
+      var temp2 = 0;
+      var max = 0
+
+      var temp = []
+      var temp1 = {};
+      var temp2 = {};
+      temp1.avgArray = [];
+
+
+
+      document.getElementById('inputData').addEventListener('click', function(){
+        nameBox = document.getElementById('nameBox').value;
+        htmlBox = document.getElementById('htmlBox').value;
+        javascriptBox = document.getElementById('javascriptBox').value;
+        cssBox = document.getElementById('cssBox').value;
+        nodejsBox = document.getElementById('nodejsBox').value;
+        mysqlBox = document.getElementById('mysqlBox').value;
+
+        htmlBoxInt = parseInt(htmlBox)
+        javascriptBoxInt = parseInt(javascriptBox)
+        cssBoxInt = parseInt(cssBox)
+        nodejsBoxInt = parseInt(nodejsBox)
+        mysqlBoxInt = parseInt(mysqlBox)
+
+        count++;
+
+        htmlSum += htmlBoxInt;
+        javascriptSum += javascriptBoxInt;
+        cssSum += cssBoxInt;
+        nodejsSum += nodejsBoxInt;
+        mysqlSum += mysqlBoxInt;
+
+        var average = (htmlBoxInt + javascriptBoxInt + cssBoxInt + nodejsBoxInt + mysqlBoxInt)/5
+        var allAverage = ((htmlSum/count) + (javascriptSum/count) + (cssSum/count) + (nodejsSum/count) + (mysqlSum/count))/5
+
+        for (var i = 0; i < count; i++) {
+          temp[i] = temp1
+          temp1[i] = average
+          temp2[i] = nameBox
+        }
+        temp.reverse();
+        max = temp1[0]
+        var resultName = temp2[0]
+
+        console.log(max);
+
+
+
+
+
+
+        resultText1 += `이름 : ${nameBox} / html : ${htmlBoxInt} / javascript : ${javascriptBoxInt} / css : ${cssBoxInt} / nodejs : ${nodejsBoxInt} / mysql : ${mysqlBoxInt} / ${nameBox}평균 : ${average}<br>`
+        resultText2 =  `평균 : html평균 : ${htmlSum/count} / javascript평균 : ${javascriptSum/count} / css평균 : ${cssSum/count} / nodejs평균 : ${nodejsSum/count} / mysql평균 : ${mysqlSum/count} / 전체평균 : ${allAverage}`
+        resultText3 = `최고득점자 이름 : ${resultName} / 평균 : ${max}`
+
+        document.getElementById('showResult1').innerHTML = resultText1
+        document.getElementById('showResult2').innerHTML = resultText2
+        document.getElementById('showResult3').innerHTML = resultText3
+
+
+
+      })
+
+    </script>
+  </body>
+</html>

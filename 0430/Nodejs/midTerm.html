@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    이름 : <input type="text" id="nameBox" value=""><br>
+    html : <input type="text" id="htmlBox" value=""><br>
+    javascript : <input type="text" id="javascriptBox" value=""><br>
+    css : <input type="text" id="cssBox" value=""><br>
+    nodejs : <input type="text" id="nodejsBox" value=""><br>
+    mysql : <input type="text" id="mysqlBox" value=""><br>
+    <input type="button" id="inputData" value="성적입력">
+    <input type="button" id="resetData" value="초기화"><br><br>
+    <span id="showResult1"></span><br>
+    <span id="showResult2"></span><br>
+    <span id="showResult3"></span>
+
+    <script>
+      var nameBox = "";
+      var htmlBox = 0;
+      var javascriptBox = 0;
+      var cssBox = 0;
+      var nodejsBox = 0;
+      var mysqlBox = 0;
+      var resultText1 = "";
+      var resultText2 = "";
+      var resultText3 = "";
+
+      var count = 0;
+
+      var htmlSum = 0;
+      var javascriptSum = 0;
+      var cssSum = 0;
+      var nodejsSum = 0;
+      var mysqlSum = 0;
+
+      var bestAvg;
+      var studentCnt=0;
+
+      var temp1 = 0;
+      var temp2 = 0;
+      var max = 0
+
+      var temp = []
+      var temp1 = {};
+      var temp2 = {};
+      temp1.avgArray = [];
+
+
+
+      document.getElementById('inputData').addEventListener('click', function(){
+        nameBox = document.getElementById('nameBox').value;
+        htmlBox = document.getElementById('htmlBox').value;
+        javascriptBox = document.getElementById('javascriptBox').value;
+        cssBox = document.getElementById('cssBox').value;
+        nodejsBox = document.getElementById('nodejsBox').value;
+        mysqlBox = document.getElementById('mysqlBox').value;
+
+        htmlBoxInt = parseInt(htmlBox)
+        javascriptBoxInt = parseInt(javascriptBox)
+        cssBoxInt = parseInt(cssBox)
+        nodejsBoxInt = parseInt(nodejsBox)
+        mysqlBoxInt = parseInt(mysqlBox)
+
+
+
+        htmlSum += htmlBoxInt;
+        javascriptSum += javascriptBoxInt;
+        cssSum += cssBoxInt;
+        nodejsSum += nodejsBoxInt;
+        mysqlSum += mysqlBoxInt;
+
+        var average = (htmlBoxInt + javascriptBoxInt + cssBoxInt + nodejsBoxInt + mysqlBoxInt)/5
+        var allAverage = ((htmlSum/count) + (javascriptSum/count) + (cssSum/count) + (nodejsSum/count) + (mysqlSum/count))/5
+        count++;
+        studentCnt++;
+
+
+
+
+
+
+        resultText1 += `이름 : ${nameBox} / html : ${htmlBoxInt} / javascript : ${javascriptBoxInt} / css : ${cssBoxInt} / nodejs : ${nodejsBoxInt} / mysql : ${mysqlBoxInt} / ${nameBox}평균 : ${average}<br>`
+        resultText2 =  `평균 : html평균 : ${htmlSum/count} / javascript평균 : ${javascriptSum/count} / css평균 : ${cssSum/count} / nodejs평균 : ${nodejsSum/count} / mysql평균 : ${mysqlSum/count} / 전체평균 : ${allAverage}`
+
+
+
+
+        document.getElementById('showResult1').innerHTML = resultText1
+        document.getElementById('showResult2').innerHTML = resultText2
+
+        if(studentCnt==1){
+          bestAvg = average;
+          document.getElementById('showResult3').innerHTML = `이름 : ${nameBox} / 평균 : ${bestAvg}`;
+        }else if(average>bestAvg){
+          bestAvg = average;
+          document.getElementById('showResult3').innerHTML = `이름 : ${nameBox} / 평균 : ${bestAvg}`;
+        }
+
+
+
+
+      })
+
+
+      document.getElementById('resetData').addEventListener('click', function(){
+  	    htmlSum = 0;
+  	    javascriptSum = 0;
+  	    cssSum = 0;
+  	    nodejsSum = 0;
+  	    mysqlSum = 0;
+  	    studentCnt = 0;
+
+  	    document.getElementById('showResult1').innerHTML = "";
+  	    document.getElementById('showResult2').innerHTML = "";
+        document.getElementById('showResult3').innerHTML = "";
+      });
+    </script>
+  </body>
+</html>

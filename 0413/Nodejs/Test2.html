@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    숫자1 <input type="text" id="num1" value=""><br>
+    숫자2 <input type="text" id="num2" value="">
+    <input type="button" id="calcBtn" value="계산"><br>
+    <span id="resultArea"></span><br>
+    횟수 : <span id = "cntArea"></span><br>
+    <span id="myArea"></span>
+    <input type="button" id="sumView" value="총합">
+
+    <script>
+
+      var cnt = 0;
+      var stackSum = 0;
+      document.getElementById('calcBtn').addEventListener('click', function(){
+
+
+        var num1 = document.getElementById('num1').value;
+        var num2 = document.getElementById('num2').value;
+
+        console.log(num1*num2);
+        var sum = num1*num2;
+        stackSum +=sum;
+        console.log(stackSum);
+        document.getElementById('resultArea').innerHTML += `${num1} x ${num2} = ${num1*num2}<br>`;
+
+        cnt++;
+
+
+
+        document.getElementById('cntArea').innerHTML = cnt;
+      })
+
+      document.getElementById('sumView').addEventListener('click', function(){
+        document.getElementById('resultArea').innerHTML = stackSum + '<br>'
+      })
+
+    </script>
+  </body>
+
+</html>

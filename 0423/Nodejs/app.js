@@ -9,16 +9,9 @@ var server = http.createServer(app).listen(80);
 // });
 
 app.get('/hi', function (req, res){
-  res.sendfile("Test.html");
+  res.sendfile("midTerm.html");
 });
 
-app.get('/hi2', function (req, res){
-  res.sendfile("Test2.html");
-});
-
-app.get('/hi3', function (req, res){
-  res.sendfile("Test3.html");
-});
 
 
 
